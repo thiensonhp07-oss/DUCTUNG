@@ -1,0 +1,9 @@
+{
+  "name": "Bùi Đức Tùng - Siêu Cấp Đáng Yêu",
+  "description": "Trang web độc quyền siêu cute và xịn sò dành riêng cho Bùi Đức Tùng với hiệu ứng tương tác đỉnh cao và mini-game hấp dẫn.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
+
