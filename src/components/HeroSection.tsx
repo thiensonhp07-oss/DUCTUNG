@@ -15,7 +15,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreLab, onSendHe
   );
   const cardRef = useRef<HTMLDivElement | null>(null);
   const heroFileInputRef = useRef<HTMLInputElement | null>(null);
-  const { photo, isCustom, updatePhoto } = useOriginalPhoto();
+  const { photo, heroPhoto, isCustom, updatePhoto } = useOriginalPhoto();
 
   const handleHeroPhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -207,7 +207,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreLab, onSendHe
                 />
 
                 <img
-                  src={photo}
+                  src={heroPhoto}
                   alt="Chân dung Bùi Đức Tùng siêu cấp ngầu và đáng yêu"
                   className="w-full h-full object-cover select-none transition-transform duration-500 group-hover:scale-105"
                   referrerPolicy="no-referrer"

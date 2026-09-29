@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Sparkles, Cookie, Sliders, Laptop, Cat, Coffee, Music, Heart } from 'lucide-react';
 import { sounds } from '../utils/soundEffects';
+import workspaceImg from '../assets/images/tung_workspace_bento_1790698572443.jpg';
+import chibiImg from '../assets/images/tung_chibi_avatar_1790698582957.jpg';
 
 const FORTUNES = [
   'Hôm nay Bùi Đức Tùng chúc bạn gặp toàn niềm vui và được uống trà sữa miễn phí!',
@@ -71,7 +73,7 @@ export const BentoShowcase: React.FC = () => {
             {/* Workspace Image with interactive hotspots */}
             <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden bg-slate-100 border border-slate-100 group">
               <img
-                src="/src/assets/images/tung_workspace_bento_1790698572443.jpg"
+                src={workspaceImg}
                 alt="Góc làm việc cực chill của Bùi Đức Tùng"
                 className="w-full h-full object-cover select-none transition-transform duration-700 group-hover:scale-102"
                 referrerPolicy="no-referrer"
@@ -147,7 +149,7 @@ export const BentoShowcase: React.FC = () => {
             {/* Chibi Mascot Display */}
             <div className="relative aspect-square w-full my-4 rounded-2xl overflow-hidden bg-rose-50/60 border border-rose-100 flex items-center justify-center group">
               <img
-                src="/src/assets/images/tung_chibi_avatar_1790698582957.jpg"
+                src={chibiImg}
                 alt="Bùi Đức Tùng Chibi Mascot"
                 className="w-48 h-48 object-cover rounded-xl select-none transition-transform duration-300 group-hover:rotate-2 group-hover:scale-105"
                 referrerPolicy="no-referrer"

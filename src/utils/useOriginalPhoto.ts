@@ -1,11 +1,19 @@
 import { useState, useEffect } from 'react';
+import defaultPhoto from '../assets/images/bui_duc_tung_official_1790699395795.jpg';
+import defaultHeroPhoto from '../assets/images/bui_duc_tung_hero_face_1790699411887.jpg';
 
 const STORAGE_KEY = 'bdt_original_photo_raw';
-const DEFAULT_PHOTO = '/src/assets/images/bui_duc_tung_real_1790698846448.jpg';
+export const DEFAULT_PHOTO = defaultPhoto;
+export const DEFAULT_HERO_PHOTO = defaultHeroPhoto;
 
 export function useOriginalPhoto() {
   const [photo, setPhoto] = useState<string>(() => {
     return localStorage.getItem(STORAGE_KEY) || DEFAULT_PHOTO;
+  });
+
+  const [heroPhoto, setHeroPhoto] = useState<string>(() => {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    return stored || DEFAULT_HERO_PHOTO;
   });
 
   const [isCustom, setIsCustom] = useState<boolean>(() => {
@@ -17,9 +25,11 @@ export function useOriginalPhoto() {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
         setPhoto(stored);
+        setHeroPhoto(stored);
         setIsCustom(true);
       } else {
         setPhoto(DEFAULT_PHOTO);
+        setHeroPhoto(DEFAULT_HERO_PHOTO);
         setIsCustom(false);
       }
     };
@@ -31,14 +41,15 @@ export function useOriginalPhoto() {
   const updatePhoto = (dataUrl: string) => {
     localStorage.setItem(STORAGE_KEY, dataUrl);
     setPhoto(dataUrl);
+    setHeroPhoto(dataUrl);
     setIsCustom(true);
-    // Dispatch a custom event for instant sync across components in the same window
     window.dispatchEvent(new Event('bdt_photo_updated'));
   };
 
   const resetPhoto = () => {
     localStorage.removeItem(STORAGE_KEY);
     setPhoto(DEFAULT_PHOTO);
+    setHeroPhoto(DEFAULT_HERO_PHOTO);
     setIsCustom(false);
     window.dispatchEvent(new Event('bdt_photo_updated'));
   };
@@ -48,9 +59,11 @@ export function useOriginalPhoto() {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
         setPhoto(stored);
+        setHeroPhoto(stored);
         setIsCustom(true);
       } else {
         setPhoto(DEFAULT_PHOTO);
+        setHeroPhoto(DEFAULT_HERO_PHOTO);
         setIsCustom(false);
       }
     };
@@ -61,6 +74,7 @@ export function useOriginalPhoto() {
 
   return {
     photo,
+    heroPhoto,
     isCustom,
     updatePhoto,
     resetPhoto,

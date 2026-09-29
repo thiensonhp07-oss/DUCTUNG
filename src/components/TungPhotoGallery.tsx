@@ -16,7 +16,7 @@ export const TungPhotoGallery: React.FC<TungPhotoGalleryProps> = ({ onSendHeart 
     'full-look': 634,
   });
 
-  const { photo, isCustom, updatePhoto, resetPhoto } = useOriginalPhoto();
+  const { photo, heroPhoto, isCustom, updatePhoto, resetPhoto } = useOriginalPhoto();
 
   const handleLikePhoto = (id: string) => {
     sounds.playHeart();
@@ -160,9 +160,9 @@ export const TungPhotoGallery: React.FC<TungPhotoGalleryProps> = ({ onSendHeart 
             <div className="bg-[#FFFDF9] rounded-3xl p-5 border border-rose-100 shadow-sm flex flex-col justify-between group flex-1">
               <div className="relative aspect-square sm:aspect-[4/3] rounded-2xl overflow-hidden bg-slate-900">
                 <img
-                  src={photo}
+                  src={heroPhoto}
                   alt="Chân dung Bùi Đức Tùng đeo kính râm cười duyên"
-                  className="w-full h-full object-cover object-top select-none transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover select-none transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-xl text-xs font-bold text-slate-800 flex items-center gap-1 shadow-xs">
                   <Glasses className="w-3.5 h-3.5 text-indigo-600" />
